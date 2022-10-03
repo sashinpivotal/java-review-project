@@ -42,10 +42,15 @@ public class Department {
 
         double monthlyTotalCompensation = 0.0;
 
-        for (int i = 0; i < currentIndex; i++) {
-            System.out.println("---> " + employees[i].getClass());
-            monthlyTotalCompensation
-                    += employees[i].computeMonthlyCompensation();
+//        for (int i = 0; i < currentIndex; i++) {
+//            System.out.println("---> " + employees[i].getClass());
+//            monthlyTotalCompensation
+//                    += employees[i].computeMonthlyCompensation();
+//        }
+
+        for (Employee employee : employees) {
+            double monthlyCompensation = employee.computeMonthlyCompensation();
+            monthlyTotalCompensation += monthlyCompensation;
         }
 
         return monthlyTotalCompensation;
@@ -67,7 +72,5 @@ public class Department {
         this.location = location;
     }
 
-    public int getCurrentIndex() {
-        return currentIndex;
-    }
+
 }
